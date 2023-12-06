@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #47098f; /* Cor de fundo azul */
+            color: #ecf0f1; /* Cor do texto branco */
+        }
+
+        #clock {
+            font-size: 3em;
+            padding: 20px;
+            background-color: #320252; /* Cor de fundo cinza escuro */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerHTML = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Chama a função imediatamente para evitar um atraso inicial
+    </script>
+</body>
+</html>
